@@ -16,6 +16,7 @@ var myGamePiece;
 
 function startGame() {
     myGamePiece = new component(30, 30, "red", 225, 225);
+    myObstacle1 = new component(0, 0, "green", 480, 270);
     myGameArea.start();
 }
 
@@ -136,11 +137,11 @@ function component(width, height, color, x, y) {
 }
 
 function updateGameArea() {
-  if (myGamePiece.crashWith(myObstacle)) {
+  if (myGamePiece.crashWith(myObstacle1)) {
     myGameArea.stop();
   } else {
     myGameArea.clear();
-    myObstacle.update();
+    myObstacle1.update();
     myGamePiece.newPos();
     myGamePiece.update();
   }
